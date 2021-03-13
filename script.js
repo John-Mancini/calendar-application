@@ -48,6 +48,7 @@ let schedule = [
     text: "",
   },
 ];
+loadAll();
 
 // created a function that uses js to manipulate the dom and insert a row that contains the time text and save button and use jquery to append everything to the same line.
 function appendRow(time, text) {
