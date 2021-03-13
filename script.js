@@ -87,3 +87,28 @@ for (let i = 0; i < schedule.length; i++) {
   console.log(timeSlot.time, timeSlot.text);
   appendRow(timeSlot.time, timeSlot.text);
 }
+
+// add a function to the save button when it its clicked this code was shortened
+$(".saveBtn").on("click", function (event) {
+  // let btn = $(event.target);
+  // let time = btn.data("time");
+  // let textarea = btn.siblings("textarea");
+  // let text = textarea.val();
+  // console.log(time, text);
+  saveAll();
+  console.log(schedule);
+});
+
+//added a save all fucntion that saves everything added in the text area to the corresponding time into the local storage and uses json to turn it into a string.
+function saveAll() {
+  $("textarea").each(function (index, item) {
+    console.log(index, item);
+    let el = $(item);
+    let time = el.data("time");
+    let text = el.val();
+    schedule[index].text = text;
+  });
+  localStorage.setItem("schedule", JSON.stringify(schedule));
+  //   localStorage.setItem("lastname", "Smith");
+  // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+}
