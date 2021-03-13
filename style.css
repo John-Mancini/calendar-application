@@ -13,9 +13,6 @@ textarea {
   padding: 10px;
   width: calc(100% - 200px);
 }
-#currentDay {
-  outline: 3px solid red;
-}
 
 .jumbotron {
   text-align: center;
