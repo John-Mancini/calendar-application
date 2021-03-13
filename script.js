@@ -99,7 +99,7 @@ $(".saveBtn").on("click", function (event) {
   console.log(schedule);
 });
 
-//added a save all fucntion that saves everything added in the text area to the corresponding time into the local storage and uses json to turn it into a string.
+//added a save all fucntion that saves everything added in the text area to the corresponding time into the local storage and uses json.stringify to turn it into a string.
 function saveAll() {
   $("textarea").each(function (index, item) {
     console.log(index, item);
@@ -111,4 +111,14 @@ function saveAll() {
   localStorage.setItem("schedule", JSON.stringify(schedule));
   //   localStorage.setItem("lastname", "Smith");
   // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+}
+
+//added a load all function to turn the strings from saveAll back into data using json parse ensuring that when the screen is refreshed the data saved into the local storage is loaded back up onto the page.
+function loadAll() {
+  let s = localStorage.getItem("schedule");
+  let parsedSchedule = JSON.parse(s);
+  console.log(parsedSchedule);
+  if (parsedSchedule) {
+    schedule = parsedSchedule;
+  }
 }
